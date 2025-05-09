@@ -1,4 +1,4 @@
-/* style.css */
+/* ===== BASE STYLES ===== */
 body {
     background-color: #0a0a0a;
     background-image: 
@@ -14,7 +14,7 @@ body {
     overflow-x: hidden;
 }
 
-/* 90s CRT SCANLINES EFFECT */
+/* ===== 90s CRT SCANLINES (THICK & VISIBLE!) ===== */
 .scanlines {
     position: fixed;
     top: 0;
@@ -24,16 +24,16 @@ body {
     background: repeating-linear-gradient(
         to bottom,
         transparent,
-        transparent 2px,
-        rgba(255, 255, 255, 0.05) 2px,
-        rgba(255, 255, 255, 0.05) 4px
+        transparent 1px,
+        rgba(255, 255, 255, 0.15) 1px,
+        rgba(255, 255, 255, 0.15) 2px
     );
     pointer-events: none;
     z-index: 999;
     mix-blend-mode: overlay;
 }
 
-/* GLITCH EFFECT */
+/* ===== GLITCH EFFECT (STRONG & JITTERY) ===== */
 .glitch-overlay {
     position: fixed;
     top: 0;
@@ -41,24 +41,24 @@ body {
     width: 100%;
     height: 100%;
     background: 
-        linear-gradient(90deg, rgba(255, 0, 170, 0.1) 0%, transparent 20%),
-        linear-gradient(-90deg, rgba(0, 255, 170, 0.1) 0%, transparent 20%);
-    opacity: 0.3;
+        linear-gradient(90deg, rgba(255, 0, 170, 0.2) 0%, transparent 20%),
+        linear-gradient(-90deg, rgba(0, 255, 170, 0.2) 0%, transparent 20%);
+    opacity: 0.5;
     pointer-events: none;
     z-index: 998;
-    animation: glitch 5s infinite alternate;
+    animation: glitch 2s infinite alternate;
 }
 
 @keyframes glitch {
     0% { transform: translate(0); }
-    20% { transform: translate(-2px, 2px); }
-    40% { transform: translate(-2px, -2px); }
-    60% { transform: translate(2px, 2px); }
-    80% { transform: translate(2px, -2px); }
+    20% { transform: translate(-3px, 3px); }
+    40% { transform: translate(-3px, -3px); }
+    60% { transform: translate(3px, 3px); }
+    80% { transform: translate(3px, -3px); }
     100% { transform: translate(0); }
 }
 
-/* PUPPYGIRL THEME UPDATES */
+/* ===== MAIN CONTAINER ===== */
 .container {
     max-width: 600px;
     margin: 0 auto;
@@ -73,10 +73,64 @@ body {
     z-index: 1;
 }
 
-.profile-pic {
-    border: 4px dashed #feca57;
+/* ===== HEADER & PROFILE PIC ===== */
+header {
+    text-align: center;
+    margin-bottom: 30px;
 }
 
+h1 {
+    font-family: 'Rock Salt', cursive;
+    color: #ff9ff3;
+    text-shadow: 2px 2px 0 #feca57;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.profile-pic {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 15px;
+    border: 4px dashed #feca57;
+    border-radius: 50%;
+    padding: 5px;
+    box-shadow: 0 0 10px #ff9ff3;
+}
+
+.profile-pic img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    filter: sepia(50%) hue-rotate(300deg) saturate(200%);
+}
+
+/* ===== BOUNCY PAWPRINTS (NOW BIG & OBVIOUS!) ===== */
+.pawprints {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    bottom: -20px;
+}
+
+.paw {
+    font-size: 24px;
+    opacity: 0.9;
+    animation: bounce 0.8s infinite alternate;
+}
+
+.paw:nth-child(1) { animation-delay: 0s; }
+.paw:nth-child(2) { animation-delay: 0.3s; }
+.paw:nth-child(3) { animation-delay: 0.6s; }
+
+@keyframes bounce {
+    from { transform: translateY(0) rotate(-10deg); }
+    to { transform: translateY(-15px) rotate(10deg); }
+}
+
+/* ===== PUPPYGIRL COLLAR ===== */
 .collar {
     width: 120px;
     height: 20px;
@@ -95,32 +149,23 @@ body {
     font-size: 20px;
 }
 
-.pawprints {
-    position: absolute;
-    width: 100%;
+/* ===== LINK BUTTONS (PASTEL EMO) ===== */
+.links {
     display: flex;
-    justify-content: space-around;
-    bottom: -15px;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
 }
 
-.paw {
-    font-size: 20px;
-    opacity: 0.7;
-    animation: bounce 1s infinite alternate;
-}
-
-.paw:nth-child(1) { animation-delay: 0s; }
-.paw:nth-child(2) { animation-delay: 0.3s; }
-.paw:nth-child(3) { animation-delay: 0.6s; }
-
-@keyframes bounce {
-    from { transform: translateY(0); }
-    to { transform: translateY(-10px); }
-}
-
-/* LINK BUTTONS (PASTEL EMO) */
 .link-button {
+    display: block;
+    padding: 12px;
+    background-color: var(--bg-color);
+    color: black;
+    text-align: center;
+    text-decoration: none;
     font-weight: bold;
+    border-radius: 30px;
     border: 2px solid white;
     transition: all 0.3s;
     position: relative;
@@ -139,8 +184,90 @@ body {
     left: 15px;
 }
 
-/* FOOTER */
+/* ===== MUSIC PLAYER ===== */
+.music-player {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 2px solid #48dbfb;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.music-player h3 {
+    color: #ff9ff3;
+    margin-top: 0;
+    text-shadow: 1px 1px 0 #feca57;
+}
+
+.song-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.song-title {
+    color: #feca57;
+}
+
+.play-time {
+    color: #ff9ff3;
+}
+
+.progress-bar {
+    height: 6px;
+    background-color: #333;
+    border-radius: 3px;
+    margin-bottom: 15px;
+}
+
+.progress {
+    height: 100%;
+    width: 60%;
+    background: linear-gradient(to right, #ff9ff3, #48dbfb);
+    border-radius: 3px;
+}
+
+.player-controls {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.player-controls button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.player-controls button:hover {
+    color: #ff9ff3;
+    transform: scale(1.2);
+}
+
+/* ===== FOOTER ===== */
 footer {
+    text-align: center;
+    font-size: 0.8rem;
     color: #ff9ff3;
     text-shadow: 1px 1px 0 #feca57;
+    margin-top: 30px;
+}
+
+.hit-counter {
+    margin-top: 15px;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.4rem;
+    }
+    
+    .profile-pic {
+        width: 120px;
+        height: 120px;
+    }
 }
