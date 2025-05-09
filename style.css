@@ -14,7 +14,7 @@ body {
     overflow-x: hidden;
 }
 
-/* ===== 90s CRT SCANLINES (THICK & VISIBLE!) ===== */
+/* ===== 90s CRT SCANLINES ===== */
 .scanlines {
     position: fixed;
     top: 0;
@@ -33,7 +33,7 @@ body {
     mix-blend-mode: overlay;
 }
 
-/* ===== GLITCH EFFECT (STRONG & JITTERY) ===== */
+/* ===== GLITCH EFFECT ===== */
 .glitch-overlay {
     position: fixed;
     top: 0;
@@ -58,6 +58,54 @@ body {
     100% { transform: translate(0); }
 }
 
+/* ===== FLOATING EMO STARS (NEW!) ===== */
+.star {
+    position: absolute;
+    font-size: 20px;
+    color: #ff9ff3;
+    text-shadow: 0 0 10px #feca57;
+    animation: float 4s infinite ease-in-out;
+    opacity: 0.8;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Different star styles */
+.star:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s; }
+.star:nth-child(2) { top: 20%; left: 80%; animation-delay: 1s; }
+.star:nth-child(3) { top: 50%; left: 15%; animation-delay: 2s; }
+.star:nth-child(4) { top: 70%; left: 90%; animation-delay: 3s; }
+.star:nth-child(5) { top: 85%; left: 30%; animation-delay: 4s; }
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(10deg); }
+}
+
+/* ===== BOUNCING PAWPRINTS ===== */
+.pawprints {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    bottom: -20px;
+}
+
+.paw {
+    font-size: 24px;
+    opacity: 0.9;
+    animation: bounce 0.8s infinite alternate;
+}
+
+.paw:nth-child(1) { animation-delay: 0s; }
+.paw:nth-child(2) { animation-delay: 0.3s; }
+.paw:nth-child(3) { animation-delay: 0.6s; }
+
+@keyframes bounce {
+    from { transform: translateY(0) rotate(-10deg); }
+    to { transform: translateY(-15px) rotate(10deg); }
+}
+
 /* ===== MAIN CONTAINER ===== */
 .container {
     max-width: 600px;
@@ -70,7 +118,7 @@ body {
         0 0 20px #feca57,
         0 0 40px #ff6b6b;
     position: relative;
-    z-index: 1;
+    z-index: 2; /* Above stars & effects */
 }
 
 /* ===== HEADER & PROFILE PIC ===== */
@@ -106,30 +154,6 @@ h1 {
     filter: sepia(50%) hue-rotate(300deg) saturate(200%);
 }
 
-/* ===== BOUNCY PAWPRINTS (NOW BIG & OBVIOUS!) ===== */
-.pawprints {
-    position: absolute;
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    bottom: -20px;
-}
-
-.paw {
-    font-size: 24px;
-    opacity: 0.9;
-    animation: bounce 0.8s infinite alternate;
-}
-
-.paw:nth-child(1) { animation-delay: 0s; }
-.paw:nth-child(2) { animation-delay: 0.3s; }
-.paw:nth-child(3) { animation-delay: 0.6s; }
-
-@keyframes bounce {
-    from { transform: translateY(0) rotate(-10deg); }
-    to { transform: translateY(-15px) rotate(10deg); }
-}
-
 /* ===== PUPPYGIRL COLLAR ===== */
 .collar {
     width: 120px;
@@ -149,7 +173,7 @@ h1 {
     font-size: 20px;
 }
 
-/* ===== LINK BUTTONS (PASTEL EMO) ===== */
+/* ===== LINK BUTTONS ===== */
 .links {
     display: flex;
     flex-direction: column;
