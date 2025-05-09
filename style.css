@@ -1,0 +1,297 @@
+/* ===== BASE STYLES ===== */
+body {
+    background-color: #0a0a0a;
+    background-image: 
+        url('https://i.imgur.com/emoskulls.png'),
+        linear-gradient(rgba(255, 0, 170, 0.1), rgba(0, 255, 170, 0.1));
+    background-repeat: repeat;
+    color: white;
+    font-family: 'Comic Neue', cursive;
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* ===== 90s CRT SCANLINES ===== */
+.scanlines {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        to bottom,
+        transparent,
+        transparent 1px,
+        rgba(255, 255, 255, 0.15) 1px,
+        rgba(255, 255, 255, 0.15) 2px
+    );
+    pointer-events: none;
+    z-index: 999;
+    mix-blend-mode: overlay;
+}
+
+/* ===== GLITCH EFFECT ===== */
+.glitch-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(90deg, rgba(255, 0, 170, 0.2) 0%, transparent 20%),
+        linear-gradient(-90deg, rgba(0, 255, 170, 0.2) 0%, transparent 20%);
+    opacity: 0.5;
+    pointer-events: none;
+    z-index: 998;
+    animation: glitch 2s infinite alternate;
+}
+
+@keyframes glitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-3px, 3px); }
+    40% { transform: translate(-3px, -3px); }
+    60% { transform: translate(3px, 3px); }
+    80% { transform: translate(3px, -3px); }
+    100% { transform: translate(0); }
+}
+
+/* ===== FLOATING EMO STARS (NEW!) ===== */
+.star {
+    position: absolute;
+    font-size: 20px;
+    color: #ff9ff3;
+    text-shadow: 0 0 10px #feca57;
+    animation: float 4s infinite ease-in-out;
+    opacity: 0.8;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Different star styles */
+.star:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s; }
+.star:nth-child(2) { top: 20%; left: 80%; animation-delay: 1s; }
+.star:nth-child(3) { top: 50%; left: 15%; animation-delay: 2s; }
+.star:nth-child(4) { top: 70%; left: 90%; animation-delay: 3s; }
+.star:nth-child(5) { top: 85%; left: 30%; animation-delay: 4s; }
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(10deg); }
+}
+
+/* ===== BOUNCING PAWPRINTS ===== */
+.pawprints {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    bottom: -20px;
+}
+
+.paw {
+    font-size: 24px;
+    opacity: 0.9;
+    animation: bounce 0.8s infinite alternate;
+}
+
+.paw:nth-child(1) { animation-delay: 0s; }
+.paw:nth-child(2) { animation-delay: 0.3s; }
+.paw:nth-child(3) { animation-delay: 0.6s; }
+
+@keyframes bounce {
+    from { transform: translateY(0) rotate(-10deg); }
+    to { transform: translateY(-15px) rotate(10deg); }
+}
+
+/* ===== MAIN CONTAINER ===== */
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 3px solid #ff9ff3;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 
+        0 0 20px #feca57,
+        0 0 40px #ff6b6b;
+    position: relative;
+    z-index: 2; /* Above stars & effects */
+}
+
+/* ===== HEADER & PROFILE PIC ===== */
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h1 {
+    font-family: 'Rock Salt', cursive;
+    color: #ff9ff3;
+    text-shadow: 2px 2px 0 #feca57;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.profile-pic {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 15px;
+    border: 4px dashed #feca57;
+    border-radius: 50%;
+    padding: 5px;
+    box-shadow: 0 0 10px #ff9ff3;
+}
+
+.profile-pic img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    filter: sepia(50%) hue-rotate(300deg) saturate(200%);
+}
+
+/* ===== PUPPYGIRL COLLAR ===== */
+.collar {
+    width: 120px;
+    height: 20px;
+    background: #ff9ff3;
+    margin: 10px auto;
+    border-radius: 10px;
+    position: relative;
+}
+
+.collar::before {
+    content: "🐶";
+    position: absolute;
+    left: 50%;
+    top: -15px;
+    transform: translateX(-50%);
+    font-size: 20px;
+}
+
+/* ===== LINK BUTTONS ===== */
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.link-button {
+    display: block;
+    padding: 12px;
+    background-color: var(--bg-color);
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 30px;
+    border: 2px solid white;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.link-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px var(--bg-color);
+    filter: brightness(1.2);
+}
+
+.link-button::before {
+    content: '🐾';
+    position: absolute;
+    left: 15px;
+}
+
+/* ===== MUSIC PLAYER ===== */
+.music-player {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 2px solid #48dbfb;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.music-player h3 {
+    color: #ff9ff3;
+    margin-top: 0;
+    text-shadow: 1px 1px 0 #feca57;
+}
+
+.song-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.song-title {
+    color: #feca57;
+}
+
+.play-time {
+    color: #ff9ff3;
+}
+
+.progress-bar {
+    height: 6px;
+    background-color: #333;
+    border-radius: 3px;
+    margin-bottom: 15px;
+}
+
+.progress {
+    height: 100%;
+    width: 60%;
+    background: linear-gradient(to right, #ff9ff3, #48dbfb);
+    border-radius: 3px;
+}
+
+.player-controls {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.player-controls button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.player-controls button:hover {
+    color: #ff9ff3;
+    transform: scale(1.2);
+}
+
+/* ===== FOOTER ===== */
+footer {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #ff9ff3;
+    text-shadow: 1px 1px 0 #feca57;
+    margin-top: 30px;
+}
+
+.hit-counter {
+    margin-top: 15px;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.4rem;
+    }
+    
+    .profile-pic {
+        width: 120px;
+        height: 120px;
+    }
+}
