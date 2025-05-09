@@ -3,30 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>emo puppygirl space ✧･ﾟ: *✧･ﾟ:* woof!</title>
-    <link rel="stylesheet" href="style.css">
+    <title>emo puppygirl space ✧･ﾟ: *✧･ﾟ:* rawr xD</title>
+    <link rel="stylesheet" href="emo_puppygirl_ULTRA.css">
     <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Rock+Salt&display=swap" rel="stylesheet">
+    <style>
+        /* Custom cursor */
+        body {
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><text x="0" y="20" font-family="Arial" font-size="20" fill="%23ff9ff3">🐾</text></svg>'), auto;
+        }
+    </style>
 </head>
 <body>
-    <!-- 90s CRT SCANLINES OVERLAY -->
+    <!-- 90s CRT SCANLINES -->
     <div class="scanlines"></div>
+    
+    <!-- GLITCH OVERLAY -->
     <div class="glitch-overlay"></div>
+    
+    <!-- ✨✨✨ FLOATING STARS ✨✨✨ -->
+    <div class="star">✧</div>
+    <div class="star">✧</div>
+    <div class="star">☆</div>
+    <div class="star">☆</div>
+    <div class="star">⋆</div>
+    <div class="star">⋆</div>
+    <div class="star">･</div>
+    <div class="star">･</div>
+    <div class="star">✧</div>
+    <div class="star">✧</div>
+    <div class="star">☆</div>
+    <div class="star">☆</div>
+    <div class="star">⋆</div>
+    <div class="star">⋆</div>
+    <div class="star">･</div>
+    <div class="star">･</div>
+    <div class="star">✧</div>
+    <div class="star">✧</div>
+    <div class="star">☆</div>
+    <div class="star">☆</div>
+    <div class="star">⋆</div>
+    <div class="star">⋆</div>
+    <div class="star">･</div>
+    <div class="star">･</div>
+    
+    <!-- 🐾🐾🐾 FLOATING PAWPRINTS 🐾🐾🐾 -->
+    <div class="floating-paw">🐾</div>
+    <div class="floating-paw">🐾</div>
+    <div class="floating-paw">🐾</div>
+    <div class="floating-paw">🐾</div>
+    <div class="floating-paw">🐾</div>
+    <div class="floating-paw">🐾</div>
+    <div class="floating-paw">🐾</div>
+    <div class="floating-paw">🐾</div>
+    <div class="floating-paw">🐾</div>
+    <div class="floating-paw">🐾</div>
+    <div class="floating-paw">🐾</div>
+    <div class="floating-paw">🐾</div>
+
+    <!-- CURSOR TRAIL -->
+    <div class="cursor-trail"></div>
 
     <div class="container">
         <header>
             <h1>
-                <span class="glitch" data-text="✧･ﾟ: *✧･ﾟ:* YOUR NAME *:･ﾟ✧*:･ﾟ✧">✧･ﾟ: *✧･ﾟ:* YOUR NAME *:･ﾟ✧*:･ﾟ✧</span>
+                <span class="glitch" data-text="✧･ﾟ: *✧･ﾟ:* YOUR NAME *:･ﾟ✧*:･ﾟ✧">
+                    ✧･ﾟ: *✧･ﾟ:* YOUR NAME *:･ﾟ✧*:･ﾟ✧
+                </span>
             </h1>
+            
             <div class="profile-pic">
                 <img src="https://i.imgur.com/emopuppy.png" alt="emo puppygirl pfp">
+                <!-- BOUNCING PAWPRINTS UNDER PFP -->
                 <div class="pawprints">
                     <div class="paw">🐾</div>
                     <div class="paw">🐾</div>
                     <div class="paw">🐾</div>
                 </div>
             </div>
+            
             <p class="bio">rawr xD ‧₊˚✩彡 puppy girl vibes~ check out my links! ✩°｡⋆⸜ ✮</p>
+            
+            <!-- PUPPY COLLAR -->
             <div class="collar"></div>
+            
+            <!-- EXTRA SPARKLES AROUND HEADER -->
+            <div class="sparkle">✧</div>
+            <div class="sparkle">☆</div>
         </header>
 
         <main>
@@ -39,8 +101,10 @@
                 <a href="#" class="link-button" style="--bg-color: #f368e0;">Wishlist</a>
             </div>
 
+            <!-- DIVIDER WITH EMOJIS -->
             <div class="divider">⋆｡ﾟ☁︎｡⋆｡ ﾟ☾ woof! ﾟ｡⋆</div>
 
+            <!-- MUSIC PLAYER -->
             <div class="music-player">
                 <h3>Current Jam:</h3>
                 <div class="player">
@@ -62,10 +126,72 @@
 
         <footer>
             <p>© 2023 [your name] - coded with black eyeliner tears & puppy kisses</p>
+            <!-- VINTAGE HIT COUNTER -->
             <div class="hit-counter">
                 <img src="https://counter.websiteout.net/compte.php?S=puppygirl-space&C=23&D=0&N=666&M=1" alt="hit counter">
             </div>
+            
+            <!-- EXTRA PAWPRINTS IN FOOTER -->
+            <div class="footer-paws">
+                <span>🐾</span>
+                <span>🐾</span>
+                <span>🐾</span>
+            </div>
         </footer>
     </div>
+
+    <script>
+        // ===== RANDOM STAR TWINKLE =====
+        const stars = document.querySelectorAll('.star');
+        
+        function randomTwinkle() {
+            stars.forEach(star => {
+                // Random chance to twinkle
+                if (Math.random() > 0.7) {
+                    star.style.opacity = '1';
+                    star.style.transform = 'scale(1.5)';
+                    
+                    setTimeout(() => {
+                        star.style.opacity = '0.6';
+                        star.style.transform = 'scale(1)';
+                    }, 300);
+                }
+            });
+            
+            setTimeout(randomTwinkle, 100);
+        }
+        
+        randomTwinkle();
+        
+        // ===== CURSOR TRAIL =====
+        const cursorTrail = document.querySelector('.cursor-trail');
+        let trailElements = [];
+        const trailCount = 8;
+        
+        // Create trail elements
+        for (let i = 0; i < trailCount; i++) {
+            const trailDot = document.createElement('div');
+            trailDot.className = 'trail-dot';
+            trailDot.style.width = `${20 - (i * 2)}px`;
+            trailDot.style.height = `${20 - (i * 2)}px`;
+            trailDot.style.opacity = `${1 - (i * 0.1)}`;
+            trailDot.innerHTML = '🐾';
+            cursorTrail.appendChild(trailDot);
+            trailElements.push(trailDot);
+        }
+        
+        // Update trail position
+        document.addEventListener('mousemove', (e) => {
+            const x = e.clientX;
+            const y = e.clientY;
+            
+            trailElements.forEach((dot, index) => {
+                setTimeout(() => {
+                    dot.style.left = `${x - (10 - (index * 1))}px`;
+                    dot.style.top = `${y - (10 - (index * 1))}px`;
+                }, index * 50);
+            });
+        });
+    </script>
 </body>
 </html>
