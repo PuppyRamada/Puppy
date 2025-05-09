@@ -1,0 +1,218 @@
+/* style.css */
+body {
+    background-color: #111;
+    background-image: url('https://i.imgur.com/emoskulls.png');
+    background-repeat: repeat;
+    color: white;
+    font-family: 'Comic Neue', cursive;
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 3px solid #ff00aa;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 0 20px #00ffaa;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h1 {
+    font-family: 'Rock Salt', cursive;
+    color: #ff00aa;
+    text-shadow: 2px 2px 0 #00ffaa;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.name {
+    color: #00ffaa;
+    text-shadow: 2px 2px 0 #ff00aa;
+}
+
+.profile-pic {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 15px;
+    border: 4px dashed #00ffaa;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.profile-pic img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    filter: sepia(50%) hue-rotate(300deg) saturate(200%);
+}
+
+.stars {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    top: -15px;
+}
+
+.star {
+    color: #ff00aa;
+    font-size: 24px;
+    text-shadow: 0 0 5px #00ffaa;
+    animation: twinkle 2s infinite alternate;
+}
+
+.star:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.star:nth-child(3) {
+    animation-delay: 1s;
+}
+
+@keyframes twinkle {
+    from { opacity: 0.5; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1.2); }
+}
+
+.bio {
+    font-style: italic;
+    color: #00ffaa;
+    font-size: 1.1rem;
+    text-shadow: 1px 1px 0 #ff00aa;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.link-button {
+    display: block;
+    padding: 12px;
+    background-color: var(--bg-color);
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 30px;
+    border: 2px solid white;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.link-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px var(--bg-color);
+}
+
+.link-button::before {
+    content: '☆';
+    position: absolute;
+    left: 15px;
+}
+
+.divider {
+    text-align: center;
+    color: #ff00aa;
+    margin: 25px 0;
+    font-size: 1.5rem;
+    text-shadow: 0 0 5px #00ffaa;
+}
+
+.music-player {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 2px solid #00ffaa;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.music-player h3 {
+    color: #ff00aa;
+    margin-top: 0;
+    text-shadow: 1px 1px 0 #00ffaa;
+}
+
+.song-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.song-title {
+    color: #00ffaa;
+}
+
+.play-time {
+    color: #ff00aa;
+}
+
+.progress-bar {
+    height: 6px;
+    background-color: #333;
+    border-radius: 3px;
+    margin-bottom: 15px;
+}
+
+.progress {
+    height: 100%;
+    width: 60%;
+    background: linear-gradient(to right, #ff00aa, #00ffaa);
+    border-radius: 3px;
+}
+
+.player-controls {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.player-controls button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.player-controls button:hover {
+    color: #ff00aa;
+    transform: scale(1.2);
+}
+
+footer {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #666;
+    margin-top: 30px;
+}
+
+.hit-counter {
+    margin-top: 15px;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.4rem;
+    }
+    
+    .profile-pic {
+        width: 120px;
+        height: 120px;
+    }
+}
